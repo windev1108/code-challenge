@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #c681ff;
+  --color-secondary: #0ca3fa;
+  --color-bg: #0e0e2a;
+  --font-poppins: "Oxanium", sans-serif;
+}
+
+@layer utilities {
+  .gradient-text {
+    font-weight: 700;
+    line-height: 48px;
+    background: linear-gradient(93.69deg, #f90cff, #6560ff 50.52%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .gradient-bg {
+    background: linear-gradient(93.69deg, #f90cff, #6560ff 50.52%);
+  }
+}
