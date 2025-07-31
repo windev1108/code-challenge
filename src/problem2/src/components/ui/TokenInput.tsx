@@ -43,7 +43,8 @@ const TokenInput = memo<TokenInputProps>(({
       onDialogToggle(true);
     }
   };
-
+  console.log('selectedToken:', selectedToken)
+  console.log('amount:', amount)
   return (
     <div className="mb-4">
       <label className="block text-secondary font-semibold mb-2">{label}</label>
@@ -51,10 +52,10 @@ const TokenInput = memo<TokenInputProps>(({
       {showBalance && selectedToken && (
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center">
-            <span className="text-sm text-gray-600">
+            <span className="text-sm text-gray-600 font-semibold">
               Balance: {selectedToken.balance ? formatUnitPrice(selectedToken.balance) : 0}
             </span>
-            <TokenIcon className='h-5' symbol={selectedToken.symbol} />
+            <TokenIcon className='h-4' symbol={selectedToken.symbol} />
           </div>
           <Button
             disabled={!selectedToken.balance || selectedToken.balance === 0 || disabled}
