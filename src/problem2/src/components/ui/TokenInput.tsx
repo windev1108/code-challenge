@@ -3,7 +3,7 @@ import { memo } from 'react';
 import type { Token } from '@/types/common';
 import { DialogWrapper } from '../shadcn/dialog';
 import { Button } from '../shadcn/button';
-import { formatUnitPrice } from '@/lib/calc';
+import { formatCurrencyCompact, formatUnitPrice } from '@/lib/calc';
 import TokenIcon from './TokenIcon';
 import TokenDialog from './TokenDialog';
 
@@ -50,9 +50,12 @@ const TokenInput = memo<TokenInputProps>(({
 
       {showBalance && selectedToken && (
         <div className="flex items-center justify-between mb-2">
-          <span className="text-sm text-gray-600">
-            Balance: {selectedToken.balance ? formatUnitPrice(selectedToken.balance) : 0}
-          </span>
+          <div className="flex items-center">
+            <span className="text-sm text-gray-600">
+              Balance: {selectedToken.balance ? formatUnitPrice(selectedToken.balance) : 0}
+            </span>
+            <TokenIcon className='h-5' symbol={selectedToken.symbol} />
+          </div>
           <Button
             disabled={!selectedToken.balance || selectedToken.balance === 0 || disabled}
             size="sm"
@@ -81,7 +84,7 @@ const TokenInput = memo<TokenInputProps>(({
                 </div>
                 {selectedToken && (
                   <div className="text-sm text-gray-500">
-                    ~${selectedToken.price.toFixed(2)}
+                    ~{formatCurrencyCompact(selectedToken.price * +amount)}
                   </div>
                 )}
               </div>
@@ -100,6 +103,7 @@ const TokenInput = memo<TokenInputProps>(({
             placeholder={placeholder}
             className="text-right bg-transparent outline-none text-lg font-semibold w-32 disabled:opacity-50"
             disabled={disabled}
+            min={0}
             {...register}
           />
         ) : (
