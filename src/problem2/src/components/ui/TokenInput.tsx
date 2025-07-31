@@ -43,8 +43,7 @@ const TokenInput = memo<TokenInputProps>(({
       onDialogToggle(true);
     }
   };
-  console.log('selectedToken:', selectedToken)
-  console.log('amount:', amount)
+
   return (
     <div className="mb-4">
       <label className="block text-secondary font-semibold mb-2">{label}</label>
@@ -101,6 +100,8 @@ const TokenInput = memo<TokenInputProps>(({
         {isInput ? (
           <input
             type="number"
+            lang='en'
+            inputMode='decimal'
             placeholder={placeholder}
             className="text-right bg-transparent outline-none text-lg font-semibold w-32 disabled:opacity-50"
             disabled={disabled}

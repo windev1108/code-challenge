@@ -14,7 +14,10 @@ const SwapSummary = memo<SwapSummaryProps>(({ swapSummary, show }) => {
   return (
     <div className="bg-gray-50 rounded-xl p-4 mb-6">
       <div className="mb-3">
-        <h4 className="text-sm font-medium text-gray-600 mb-2">Before swap:</h4>
+        <div className="flex justify-between items-center mb-2">
+          <h4 className="text-sm font-medium text-gray-600">Before swap:</h4>
+          <h4 className="text-sm font-medium text-gray-600">Balance</h4>
+        </div>
         <div className="flex items-center justify-between mb-1">
           <div className="flex items-center gap-2">
             <TokenIcon symbol={swapSummary.before.fromToken.symbol} size="sm" />
