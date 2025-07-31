@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
-import type { Token, SwapFormData } from '../types/swap';
+import type { SwapFormData } from '../types/swap';
 import { useBalanceStore } from '@/store/BalanceStore';
 import toast from 'react-hot-toast';
 import { sleep } from '@/lib/utils';
