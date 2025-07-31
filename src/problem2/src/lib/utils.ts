@@ -1,4 +1,4 @@
-import type { RawToken, Token } from '@/types/swap';
+import type { RawToken, Token } from '@/types/common';
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 

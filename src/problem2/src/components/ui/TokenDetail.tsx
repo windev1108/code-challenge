@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { formatUnitPrice, formatCurrencyCompact, prettyPrice } from "@/lib/calc";
 import TokenIcon from './TokenIcon';
-import type { Token } from "@/types/swap";
+import type { Token } from "@/types/common";
 
 export interface TokenDetailProps extends Token {
   variant?: 'price' | 'balance';

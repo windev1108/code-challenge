@@ -1,4 +1,4 @@
-import type { RawToken } from '../types/swap';
+import type { RawToken } from '../types/common';
 import axiosIntance from './axios-instance';
 
 

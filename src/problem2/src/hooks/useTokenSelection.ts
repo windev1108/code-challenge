@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
-import type { Token } from '../types/swap';
+import type { Token } from '../types/common';
 import { useTokens } from './useToken';
 import { useBalanceStore } from '@/store/BalanceStore';
 
@@ -38,7 +38,7 @@ export const useTokenSelection = (): UseTokenSelectionReturn => {
             setSelectedToken({ from: token });
         }
         setIsFromDialogOpen(false);
-    }, [selectedToken]);
+    }, [selectedToken.from, selectedToken.to, setSelectedToken]);
 
     const handleSelectToToken = useCallback((token: Token) => {
         if (token.symbol === selectedToken.from?.symbol) {
@@ -48,7 +48,7 @@ export const useTokenSelection = (): UseTokenSelectionReturn => {
             setSelectedToken({ to: token });
         }
         setIsToDialogOpen(false);
-    }, [selectedToken]);
+    }, [selectedToken.from, selectedToken.to, setSelectedToken]);
 
     const handleSwitchTokens = useCallback(() => {
         if (!selectedToken.from || !selectedToken.to) return;

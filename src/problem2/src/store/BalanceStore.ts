@@ -1,4 +1,4 @@
-import type { Token } from '@/types/swap';
+import type { Token } from '@/types/common';
 import { createSelectorFunctions } from 'auto-zustand-selectors-hook';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';

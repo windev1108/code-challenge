@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
-import type { SwapFormData } from '../types/swap';
+import type { SwapFormData } from '../types/common';
 import { useBalanceStore } from '@/store/BalanceStore';
 import toast from 'react-hot-toast';
 import { sleep } from '@/lib/utils';
@@ -75,7 +75,6 @@ export const useSwapForm = () => {
         const toSymbol = selectedToken.to.symbol;
         const fromAmountNum = parseFloat(data.fromAmount);
         const toAmountNum = data.toAmount ? parseFloat(data.toAmount) : parseFloat(swapCalculation.toAmount)
-        console.log('toAmountNum :', toAmountNum)
         // Get current balances
         const fromBalance = balances.find(t => t.symbol === fromSymbol)?.balance ?? 0;
         const toBalance = balances.find(t => t.symbol === toSymbol)?.balance ?? 0;
@@ -104,6 +103,7 @@ export const useSwapForm = () => {
 
             toast.success('Swap executed successfully!');
             return true;
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (error) {
             toast.error('Swap failed! Please try again.');
             return false;
@@ -120,7 +120,7 @@ export const useSwapForm = () => {
             value: selectedToken.from?.balance ?? 0,
             message: 'Insufficient balance'
         },
-        validate: (value: any) => {
+        validate: (value: unknown) => {
             if (!value || value === '') return 'Amount is required';
             if (isNaN(Number(value))) return 'Amount must be a number';
             if (Number(value) <= 0) return 'Amount must be positive';

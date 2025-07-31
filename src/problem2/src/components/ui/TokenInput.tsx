@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { memo } from 'react';
-import type { Token } from '@/types/swap';
+import type { Token } from '@/types/common';
 import { DialogWrapper } from '../shadcn/dialog';
 import { Button } from '../shadcn/button';
 import { formatUnitPrice } from '@/lib/calc';

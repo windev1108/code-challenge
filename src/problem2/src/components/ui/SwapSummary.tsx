@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import type { SwapSummary as SwapSummaryType } from '@/types/swap';
+import type { SwapSummary as SwapSummaryType } from '@/types/common';
 import { formatUnitPrice } from '@/lib/calc';
 import TokenIcon from './TokenIcon';
 

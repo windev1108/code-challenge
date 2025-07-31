@@ -1,6 +1,6 @@
 import { useTokens } from '@/hooks/useToken'
 import TokenDetail, { type TokenDetailProps } from './TokenDetail'
-import type { Token } from '@/types/swap';
+import type { Token } from '@/types/common';
 import { memo, useMemo, useState } from 'react';
 import LoadingSpinner from './LoadingSpinner';
 import { Input } from '../shadcn/input';
